@@ -78,6 +78,19 @@ export default function Header() {
                             </ul>
                         </div>
                     </div>
+                    <div>
+                        <div
+                            className={`flex-1 justify-self-center pb-3 mt-8 md:flex md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
+                                }`}
+                        >
+                            <h1>
+                                userinfo +
+                            </h1>
+                            <h1>
+                                login
+                            </h1>
+                        </div>
+                    </div>
                 </div>
             </nav>
         );
