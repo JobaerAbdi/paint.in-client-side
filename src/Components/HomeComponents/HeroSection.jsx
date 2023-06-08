@@ -65,7 +65,7 @@ const HeroSection = () => {
                 .map((_, index) => (
                   <OfferCard
                     key={index}
-                    title="Card Title"
+                    title="Summer discount"
                     categories="Grocery"
                     discount="15"
                     shippingCost="500"
