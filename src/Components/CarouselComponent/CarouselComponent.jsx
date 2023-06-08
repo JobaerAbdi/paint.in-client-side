@@ -6,7 +6,6 @@ import img3 from "../../assets/Home/slider-3.webp"
 
 const CarouselComponent = ({ heading, subHeading, bgImage }) => {
 
-  // let img = `../../assets/Home/slider-${bgImage}.webp`
 
   console.log("image",bgImage)
   return (
