@@ -14,21 +14,19 @@ import img1 from "../../assets/Home/slider-1.webp"
 const carouselSlider = [
   {
     imageURL: '1',
-    heading: "The Best Quality Products Guranteed!!",
-    subheading:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, rem.",
+    heading: " The best painting learning platform.",
+    subheading:"Learn painting at the easiest way You have ever seen.just enrell our classes.",
   },
   {
     imageURL: '2',
-    heading: "The Best Quality Products Guranteed!!",
-    subheading:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, rem.",
+    heading: "we ensure you the quality learning.",
+    subheading:"Our student is more Valuable to us.They enjoy learning.",
   },
   {
     imageURL: '3',
-    heading: "The Best Quality Products Guranteed!!",
+    heading: "Learning is fun here!",
     subheading:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, rem.",
+      "Enroll our summer batch. And be that painter you want to be",
   },
 ];
 const HeroSection = () => {

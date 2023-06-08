@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Countdown, { zeroPad } from "react-countdown";
+import img1 from "../../assets/Home/sq.jpg"
+import img2 from "../../assets/Home/sq.jpg"
 
 const OfferCard = ({
   title,
@@ -31,7 +33,7 @@ const OfferCard = ({
       <div className="flex items-center md:w-2/3 md:border-r-2 border-dashed pr-1 ">
         <figure className="h-full">
           <img
-            src={imageUrl}
+            src={img1}
             alt="My Image"
             width="120"
             height="220"

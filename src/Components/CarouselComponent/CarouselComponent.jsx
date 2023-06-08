@@ -15,7 +15,7 @@ const CarouselComponent = ({ heading, subHeading, bgImage }) => {
         <h1 className="font-bold text-xl sm:text-3xl">{heading}</h1>
         <p className="text-gray-primary text-xs md:text-base">{subHeading}</p>
         <Button
-          text={"Shop Now"}
+          text={"Enroll Now"}
           fill={true}
           className="text-xs md:text-base px-2 py-2 hidden sm:inline"
         />

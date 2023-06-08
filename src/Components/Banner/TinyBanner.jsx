@@ -9,18 +9,18 @@ const TinyBanner = () => {
           <div>
             <h1 className="font-sans text-xl">
               <span className="text-emerald-600 font-bold mr-2">
-                100% Natural Quality
+                Best teaching Quality
               </span>
-              Organic Product
+              platform
             </h1>
             <p className="text-gray-500">
-              See Our latest discounted products from here and get a special
+              See Our latest discounted classes from here and get a special
               <a className="text-emerald-600 ml-1" href="">
-                discount product
+                discount class
               </a>
             </p>
           </div>
-          <Button text={"Shop Now"} fill={true} />
+          <Button text={"Enroll Now"} fill={true} />
         </div>
       </div>
     </div>
