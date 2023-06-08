@@ -1,7 +1,20 @@
 
+import HeroSection from '../../../Components/HomeComponents/HeroSection'
+
+
+
+
+
+
 function Home() {
   return (
-    <div>This is home</div>
+    <div>
+
+
+        <HeroSection></HeroSection>
+
+
+    </div>
   )
 }
 

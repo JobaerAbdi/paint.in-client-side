@@ -34,10 +34,8 @@
 	position: relative;
 	color: #000000;
 	text-align: center;
-	/* width: 400px;
-	height: 250px; */
 	background: linear-gradient(0deg, #fff, #ffffff);
-    /* background-color: #9b9999; */
+	/* background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); */
 }
 .myshadow:before,
 .myshadow:after {
