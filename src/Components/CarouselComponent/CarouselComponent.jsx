@@ -1,7 +1,7 @@
 import Button from '../Button/Button';
-import img1 from "../../assets/Home/slider-1.webp"
-import img2 from "../../assets/Home/slider-2.webp"
-import img3 from "../../assets/Home/slider-3.webp"
+import img1 from "../../assets/Home/cv1.jpg"
+import img2 from "../../assets/Home/cv2.jpg"
+import img3 from "../../assets/Home/cv3.jpg"
 
 
 const CarouselComponent = ({ heading, subHeading, bgImage }) => {
