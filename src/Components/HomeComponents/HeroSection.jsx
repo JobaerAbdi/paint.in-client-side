@@ -32,7 +32,7 @@ const carouselSlider = [
 const HeroSection = () => {
   return (
     <div className="bg-white mt-12 ">
-      <div className="container">
+      <div className="">
         <div className="max-w-screen-2xl mx-auto lg:flex gap-8">
           {/* left  */}
           <div className="w-full xl:w-3/5 rounded-md overflow-hidden">
@@ -55,7 +55,7 @@ const HeroSection = () => {
           </div>
 
           {/* right  */}
-          <div className="relative xl:w-2/5 max-h-[365px] border-2 border-[var(--clr-red)] rounded-md hover:border-[var(--clr-primary)] hidden xl:inline-block overflow-auto scrollbar-hide">
+          <div className="relative xl:w-2/5 max-h-[365px] border-2 border-[var(--clr-red)] rounded-md hover:border-[var(--clr-primary)]  lg:inline-block overflow-auto scrollbar-hide">
             <div className="sticky top-0 z-0 h-10 bg-orange-200 text-center overflow-hidden rounded-t-md pt-2 font-bold">
               Latest Super Discount Active Coupon Code
             </div>
