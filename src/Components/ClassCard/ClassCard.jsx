@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ({ image, title, price, ratings, instructorPhoto, instructor, availableSeats, enrolledStudents }) => {
   return (
-    <div className="max-w-md mx-auto my-3 md:m-3 bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+    <div className="max-w-md mx-auto my-3 md:m-3 bg-white shadow-md overflow-hidden md:max-w-2xl  hover:scale-110 transition-transform duration-300">
       <div className="">
         <div className="md:flex-shrink-0">
           <img className="h-48 w-full object-cover md:w-64" src={image} alt="Course" />
@@ -10,7 +10,7 @@ const Card = ({ image, title, price, ratings, instructorPhoto, instructor, avail
         <div className="p-2">
           <div className="uppercase tracking-wide text-lg text-green-400 font-semibold w-fit ml-auto mr-0">{price}</div>
           <div className="mt-0">
-            <h3 className="text-3xl font-semibold">{title}</h3>
+            <h3 className="text-2xl font-semibold">{title}</h3>
             <div className="flex items-center mt-1">
               <img className="w-7 h-7 rounded-full mr-2" src={instructorPhoto} alt="Instructor" />
               <h4 className="text-lg font-medium">{instructor}</h4>
