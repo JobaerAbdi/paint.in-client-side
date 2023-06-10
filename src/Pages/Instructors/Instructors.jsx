@@ -13,6 +13,8 @@ function Instructors() {
         <title>Instructors | Paint.in</title>
       </Helmet>
 
+      
+
       <AutoPlay></AutoPlay>
 
       <div>Instructors page</div>

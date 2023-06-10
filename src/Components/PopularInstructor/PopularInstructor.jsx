@@ -32,14 +32,11 @@ function PopularInstructor() {
         Meet our popular Instractors!
       </h1>
       <div className="mx-2 md:flex justify-center flex-wrap ">
-
         {
-         data.map(instractor =><Card
+         data.slice(0, 6).map(instractor =><Card
           data={instractor}
         />)
         }
-        
-        
       </div>
     </div>
   );
