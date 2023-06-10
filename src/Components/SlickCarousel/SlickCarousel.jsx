@@ -24,7 +24,7 @@ function AutoPlay() {
     fetchData();
   }, []);
 
-  console.log(data);
+  // console.log(data);
 
   const settings = {
     dots: true,
@@ -81,7 +81,7 @@ function AutoPlay() {
 
   return (
     <div>
-      <h2>Auto Play</h2>
+      {/* <h2>Auto Play</h2> */}
       <Slider {...settings}>
         {data.slice(0, 4).map((instractor) => (
           <Card data={instractor} />
