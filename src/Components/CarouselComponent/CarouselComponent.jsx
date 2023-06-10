@@ -7,7 +7,7 @@ import img3 from "../../assets/Home/cv3.jpg"
 const CarouselComponent = ({ heading, subHeading, bgImage }) => {
 
 
-  console.log("image",bgImage)
+  // console.log("image",bgImage)
   return (
     <div className="relative text-left rounded-md overflow-hidden">
       <img src={bgImage == 1 ? img1 : bgImage == 2? img2 : img3} />

@@ -1,42 +1,45 @@
+import { useEffect, useState } from "react";
 import Card from "../InstructorCard/InstructorCard";
 
 function PopularInstructor() {
+
+
+  const [data, setData] = useState([]);
+
+  // console.log(data)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/Instractors');
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []); 
+
+
+ 
+  // console.log(InstructorName)
+
   return (
     <div className="mt-10">
       <h1 className="text-center text-3xl font-bold my-6">
         Meet our popular Instractors!
       </h1>
       <div className="mx-2 md:flex justify-center flex-wrap ">
-        <Card
-          imageSrc="https://img.freepik.com/free-photo/good-deal-right-corner-confident-pleasant-friendly-looking-african-american-gorgeous-woman-with-afro-haircut-asking-check-out-visit-store-page-pointing-finger-left-smiling-looking-camera_1258-85037.jpg?size=626&ext=jpg&ga=GA1.2.918059691.1683563068&semt=sph"
-          name="John Doe"
-          classes={3}
-          otherInfo="Lorem ipsum dolor sit amet"
-        />
-        <Card
-          imageSrc="https://img.freepik.com/free-photo/good-deal-right-corner-confident-pleasant-friendly-looking-african-american-gorgeous-woman-with-afro-haircut-asking-check-out-visit-store-page-pointing-finger-left-smiling-looking-camera_1258-85037.jpg?size=626&ext=jpg&ga=GA1.2.918059691.1683563068&semt=sph"
-          name="John Doe"
-          classes={3}
-          otherInfo="Lorem ipsum dolor sit amet"
-        />
-        <Card
-          imageSrc="https://img.freepik.com/free-photo/good-deal-right-corner-confident-pleasant-friendly-looking-african-american-gorgeous-woman-with-afro-haircut-asking-check-out-visit-store-page-pointing-finger-left-smiling-looking-camera_1258-85037.jpg?size=626&ext=jpg&ga=GA1.2.918059691.1683563068&semt=sph"
-          name="John Doe"
-          classes={3}
-          otherInfo="Lorem ipsum dolor sit amet"
-        />
-        <Card
-          imageSrc="https://img.freepik.com/free-photo/good-deal-right-corner-confident-pleasant-friendly-looking-african-american-gorgeous-woman-with-afro-haircut-asking-check-out-visit-store-page-pointing-finger-left-smiling-looking-camera_1258-85037.jpg?size=626&ext=jpg&ga=GA1.2.918059691.1683563068&semt=sph"
-          name="John Doe"
-          classes={3}
-          otherInfo="Lorem ipsum dolor sit amet"
-        />
-        <Card
-          imageSrc="https://img.freepik.com/free-photo/good-deal-right-corner-confident-pleasant-friendly-looking-african-american-gorgeous-woman-with-afro-haircut-asking-check-out-visit-store-page-pointing-finger-left-smiling-looking-camera_1258-85037.jpg?size=626&ext=jpg&ga=GA1.2.918059691.1683563068&semt=sph"
-          name="John Doe"
-          classes={3}
-          otherInfo="Lorem ipsum dolor sit amet"
-        />
+
+        {
+         data.map(instractor =><Card
+          data={instractor}
+        />)
+        }
+        
+        
       </div>
     </div>
   );

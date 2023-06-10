@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 function Instructors() {
   return (
     <div>
-        <Helmet>
+      <Helmet>
         <title>Instructors | Paint.in</title>
       </Helmet>
       <div>Instructors page</div>
