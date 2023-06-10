@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ({ image, title, price, ratings, instructorPhoto, instructor, availableSeats, enrolledStudents }) => {
   return (
-    <div className="max-w-md mx-auto my-3 md:m-3 bg-white shadow-md overflow-hidden md:max-w-2xl  hover:scale-110 transition-transform duration-300">
+    <div className=" font-serif max-w-md mx-auto my-3 md:m-3 bg-white shadow-md overflow-hidden md:max-w-2xl  hover:scale-110 transition-transform duration-300">
       <div className="">
         <div className="md:flex-shrink-0">
           <img className="h-48 w-full object-cover md:w-64" src={image} alt="Course" />
