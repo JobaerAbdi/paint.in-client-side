@@ -84,11 +84,9 @@ export default function Header() {
                                 }`}
                         >
                             <h1>
-                                userinfo +
+                                userinfo 
                             </h1>
-                            <h1>
-                                login
-                            </h1>
+                            <Link to="/login">Login</Link>
                         </div>
                     </div>
                 </div>

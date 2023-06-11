@@ -91,7 +91,7 @@ const OfferCard = ({
             <p className="text-xs text-gray-500 mt-2">
               * This coupon code will apply on{" "}
               <span className="font-bold text-gray-700">
-                {categories} type products{" "}
+                Paint classes {" "}
               </span>
               and when you shopping more then
               <span className="font-bold text-gray-700"> ${shippingCost}</span>
