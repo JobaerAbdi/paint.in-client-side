@@ -42,7 +42,7 @@ function Instructors() {
 
 
   const bannerData = {
-    title: 'Meet our resposible Instructors',
+    title: 'Meet our responsible Instructors',
     description: 'lorem30 dshga idshf hsdlia hi ohighsaoi ji oijfo isd hfdjshs ojf iwei ois oi uoiwofopw ifpowpo weo ufopwe',
     bannerImage: 'dlkghadkjhgkldsaghldskjhgajldks',
 

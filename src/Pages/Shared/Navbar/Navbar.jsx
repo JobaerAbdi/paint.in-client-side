@@ -69,7 +69,7 @@ export default function Header() {
                                     <Link to="/instructors" className="  font-semi-bold px-2 py-1 myshadow transition ease-in-out duration-900 hover:scale-110 rounded-md" >Instructors</Link>
                                 </li>
                                 <li className="">
-                                    <Link to="/about" className="  font-semi-bold px-2 py-1 myshadow transition ease-in-out duration-900 hover:scale-110 rounded-md" >About</Link>
+                                    <Link to="/classes" className="  font-semi-bold px-2 py-1 myshadow transition ease-in-out duration-900 hover:scale-110 rounded-md" >Classes</Link>
                                 </li>
                                 <li className="">
                                     <Link to="/" className="  font-semi-bold px-2 py-1 myshadow transition ease-in-out duration-900 hover:scale-110 rounded-md" >Contact</Link>
