@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
-import photo from "../../assets/Login/bnr.jpeg"
+import photo from "../../assets/Login/bnr.jpeg";
+import photobg from "../../assets/Login/paintbg.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -26,11 +27,9 @@ const Login = () => {
   };
 
   return (
-    <div className="md:flex justify-center items-center">
-     
-        <img className="basis-1/2 md:w-1/2" src={photo}></img>
-      <div className=" mx-auto flex items-center bg-transparent bg-blur">
-        <div className="w-80 mx-auto bg-white p-6 rounded-lg shadow-lg">
+    <div className="md:flex flex-row-reverse justify-center items-center">
+      <div style={{ backgroundImage: `url(${photobg})` }} className=" bg-cover mx-auto flex items-center bg-blur backdrop-blur-2xl">
+        <div className="w-80 mx-auto  p-6 rounded-lg shadow-lg  bg-blur backdrop-blur-sm">
           <h2 className="text-2xl font-bold mb-4">Login</h2>
           <form onSubmit={handleLogin}>
             <div className="mb-4">
@@ -97,7 +96,7 @@ const Login = () => {
           </button>
         </div>
       </div>
-  
+      <img className="basis-1/2 md:w-1/2" src={photo}></img>
     </div>
   );
 };
