@@ -10,6 +10,7 @@ const SignUp = () => {
   const { createUser } = useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
+  const [err, setErr] = useState("");
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,6 +27,7 @@ const SignUp = () => {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+    validatePassword(e.target.value)
   };
   const handlePassword2Change = (e) => {
     setPassword2(e.target.value);
@@ -38,9 +40,40 @@ const SignUp = () => {
     setShowPassword(!showPassword);
   };
 
+
+
+
+  function validatePassword(password){
+    // Regular expression pattern
+    var pattern = /^(?=.*[A-Z])(?=.*[@#$!%*?&])[A-Za-z\d@#$!%*?&]{6,}$/;
+  
+    // Check if the password matches the pattern
+    if( !pattern.test(password)){
+      setErr("password must have uppercase and special character")
+    }else{
+      setErr("")
+    }
+  }
+
+
+
+
+
+
+
+
   const handleSignUp = (e) => {
     e.preventDefault();
-    console.log(name, email, password, password2, photoUrl);
+    // console.log(name, email, password, password2, photoUrl);
+
+
+
+    console.log(err) 
+    
+
+
+
+
     // createUser(email, password);
     // then((result) => {
     //   const user = result.user;
@@ -179,12 +212,12 @@ const SignUp = () => {
                 Have account? Login
               </Link>
             </div>
-            <button
+            {/* <button
               type="submit"
               className="w-full bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600 transition duration-200"
             >
               Sign In with GOOGLE
-            </button>
+            </button> */}
           </div>
         </div>
         <img className="basis-1/2 md:w-1/2" src={photo}></img>
