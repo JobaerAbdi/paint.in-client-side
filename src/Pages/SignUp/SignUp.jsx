@@ -11,6 +11,7 @@ const SignUp = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [err, setErr] = useState("");
+  const [showErr, setShowErr] = useState(false);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -51,11 +52,11 @@ const SignUp = () => {
   
     // Check if the password matches the pattern
     if( password !== password2){
-      setErr("password does not match")
+      setErr("password does not match !")
     }else if( !pattern.test(password)){
-      setErr("password must have uppercase and special character")
+      setErr("password must have at least 6 character mix with uppercase and special character !")
     }else if( !pattern.test(password2)){
-      setErr("password must have at least 6 character mix with uppercase and special character")
+      setErr("password must have at least 6 character mix with uppercase and special character !")
     }else{
       setErr(" ")
     }
@@ -75,7 +76,8 @@ const SignUp = () => {
 
 
 
-    console.log(err) 
+    // console.log(err) 
+    setShowErr(true);
     
 
 
@@ -99,7 +101,7 @@ const SignUp = () => {
           <div className="w-80  mx-auto  p-6 rounded-lg shadow-lg  bg-blur backdrop-blur-sm">
             <h2 className="text-2xl text-center font-bold mb-4">Sign Up </h2>
             <form onSubmit={handleSignUp}>
-              <div className="mb-4">
+              <div className="mb-2">
                 <label
                   htmlFor="name"
                   className="block text-gray-700 font-semibold mb-2"
@@ -115,7 +117,7 @@ const SignUp = () => {
                   required
                 />
               </div>
-              <div className="mb-4">
+              <div className="mb-2">
                 <label
                   htmlFor="email"
                   className="block text-gray-700 font-semibold mb-2"
@@ -131,7 +133,7 @@ const SignUp = () => {
                   required
                 />
               </div>
-              <div className="mb-4">
+              <div className="mb-2">
                 <label
                   htmlFor="password"
                   className="block text-gray-700 font-semibold mb-2"
@@ -159,7 +161,7 @@ const SignUp = () => {
                   </span>
                 </div>
               </div>
-              <div className="mb-4">
+              <div className="mb-2">
                 <label
                   htmlFor="password"
                   className="block text-gray-700 font-semibold mb-2"
@@ -187,7 +189,14 @@ const SignUp = () => {
                   </span>
                 </div>
               </div>
-              <div className="mb-4">
+
+              <div>
+                {
+                  showErr && <p className=" text-red-600 bg-[#ffffff90] rounded text-sm font-semibold">{err}</p>
+                }
+              </div>
+
+              <div className="mb-2">
                 <label
                   htmlFor="photoUrl"
                   className="block text-gray-700 font-semibold mb-2"
