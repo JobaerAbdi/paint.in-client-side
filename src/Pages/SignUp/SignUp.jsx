@@ -27,10 +27,12 @@ const SignUp = () => {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-    validatePassword(e.target.value)
+    validatePassword(e.target.value, password2)
   };
   const handlePassword2Change = (e) => {
     setPassword2(e.target.value);
+    validatePassword(password, e.target.value)
+
   };
   const handlePhotoUrlChange = (e) => {
     setPhotoUrl(e.target.value);
@@ -43,17 +45,22 @@ const SignUp = () => {
 
 
 
-  function validatePassword(password){
+  function validatePassword(password, password2){
     // Regular expression pattern
     var pattern = /^(?=.*[A-Z])(?=.*[@#$!%*?&])[A-Za-z\d@#$!%*?&]{6,}$/;
   
     // Check if the password matches the pattern
-    if( !pattern.test(password)){
+    if( password !== password2){
+      setErr("password does not match")
+    }else if( !pattern.test(password)){
       setErr("password must have uppercase and special character")
+    }else if( !pattern.test(password2)){
+      setErr("password must have at least 6 character mix with uppercase and special character")
     }else{
-      setErr("")
+      setErr(" ")
     }
   }
+  
 
 
 
