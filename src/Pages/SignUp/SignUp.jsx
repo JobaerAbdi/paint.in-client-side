@@ -6,9 +6,10 @@ import photobg from "../../assets/Login/paintbg.png";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const SignUp = () => {
-  const { createUser, createMongoUser } = useContext(AuthContext);
+  const { createUser, createMongoUser, providerLogin } = useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
   const [err, setErr] = useState("");
@@ -76,7 +77,6 @@ const SignUp = () => {
     // console.log(name, email, password, password2, photoUrl);
 
     setShowErr(true);
-    
 
     //signup funs perform here--
     if(!err){
@@ -84,29 +84,41 @@ const SignUp = () => {
       const userObject = {
         name,
         email,
-        password
+        photoUrl
       }
       createUser(email,password)
       .then(result => {
         const loggedUser = result.user;
         console.log(loggedUser)
         if(result.user){
-          createMongoUser(userObject)
+          // createMongoUser(userObject)
+          console.log(result.user);
         }
       })
-
-
     }
 
-
-
-    // createUser(email, password);
-    // then((result) => {
-    //   const user = result.user;
-    //   console.log(user);
-    // });
-    // Perform login logic here
   };
+
+  
+  const googleProvider = new GoogleAuthProvider();
+  const handleGoogleSignIn = () =>{
+      providerLogin(googleProvider)
+      .then(result => {
+          if(result.user){
+            const userObject = {
+              email : result.user.email,
+              name: result.user.displayName,
+              photoUrl: result.user.photoURL
+            }
+            // console.log(phor)
+            createMongoUser(userObject)
+          }
+          // navigate('/')
+      })
+      .catch(err => console.log(err))
+  }
+
+
 
   return (
     <>
@@ -249,12 +261,13 @@ const SignUp = () => {
                 Have an account? Login
               </Link>
             </div>
-            {/* <button
+            <button
+              onClick={handleGoogleSignIn}
               type="submit"
               className="w-full bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600 transition duration-200"
             >
-              Sign In with GOOGLE
-            </button> */}
+              Sign Up with GOOGLE
+            </button>
           </div>
         </div>
         <img className="basis-1/2 md:w-1/2" src={photo}></img>

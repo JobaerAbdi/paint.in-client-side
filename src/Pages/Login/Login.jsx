@@ -6,9 +6,10 @@ import photobg from "../../assets/Login/paintbg.png";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, providerLogin, createMongoUser } = useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -37,6 +38,28 @@ const Login = () => {
     });
     // Perform login logic here
   };
+
+
+
+  const googleProvider = new GoogleAuthProvider();
+  const handleGoogleSignIn = () =>{
+      providerLogin(googleProvider)
+      .then(result => {
+          if(result.user){
+            const userObject = {
+              email : result.user.email,
+              name: result.user.displayName,
+              photoUrl: result.user.photoURL
+            }
+            // console.log(phor)
+            createMongoUser(userObject)
+          }
+          // navigate('/')
+      })
+      .catch(err => console.log(err))
+  }
+
+  
 
   return (
     <>
@@ -112,6 +135,7 @@ const Login = () => {
                 </Link>
               </div>
               <button
+              onClick={handleGoogleSignIn}
                 type="submit"
                 className="w-full bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600 transition duration-200"
               >

@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   updateProfile,
+  signInWithPopup,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 
@@ -20,6 +21,10 @@ const AuthProvider = ({ children }) => {
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const providerLogin = (provider) => {
+    return signInWithPopup(auth, provider);
   };
 
   const signIn = (email, password) => {
@@ -50,16 +55,7 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-
-
-
-
-  
   //Create Mongodb user-------
-
-
-
-
 
   const createMongoUser = async (userObject) => {
     try {
@@ -82,15 +78,6 @@ const AuthProvider = ({ children }) => {
       console.error(error.message);
     }
   };
-
-
-
-
-
-
-
-
-
 
   // const handleCreateUser = (userObject) => {
   //   useEffect(() => {
@@ -120,11 +107,6 @@ const AuthProvider = ({ children }) => {
   //   }, [userObject]);
   // };
 
-
-
-
-
-
   const authInfo = {
     user,
     loading,
@@ -133,6 +115,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     updateUserProfile,
     createMongoUser,
+    providerLogin,
   };
 
   return (
