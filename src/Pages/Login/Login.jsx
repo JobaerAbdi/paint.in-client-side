@@ -51,7 +51,8 @@ const Login = () => {
             const userObject = {
               email : result.user.email,
               name: result.user.displayName,
-              photoUrl: result.user.photoURL
+              photoUrl: result.user.photoURL,
+              userRole: "student"
             }
             // console.log(phor)
             createMongoUser(userObject)
