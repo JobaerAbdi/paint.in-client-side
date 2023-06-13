@@ -5,8 +5,19 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import {FiLogOut} from "react-icons/fi"
+
+
 export default function Header() {
-  const { user } = useContext(AuthContext);
+
+
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+
+    // console.log("logout perform")
+    logOut()
+    .then(()=>{   })
+    .catch(err => console.log(err))
+  }
   console.log(user);
   const [navbar, setNavbar] = useState(false);
 
@@ -111,9 +122,9 @@ export default function Header() {
           >
             {user?.uid ? (
               <>
-                <button className="flex items-center p-1 text-white bg-red-500 rounded hover:bg-red-600">
+                <button onClick={handleLogOut} className="flex items-center p-1 text-red-600 border border-red-600  rounded hover:bg-red-600 hover:text-white">
                   <span>Logout</span>
-                  <FiLogOut className="pl-1"></FiLogOut>
+                  <FiLogOut className="pl-1 text-xl"></FiLogOut>
                 </button>
               </>
             ) : (
