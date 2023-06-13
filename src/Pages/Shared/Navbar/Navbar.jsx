@@ -4,20 +4,16 @@ import logo from "/Projects/paint-in-client/src/assets/logo.png";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-import {FiLogOut} from "react-icons/fi"
-
+import { FiLogOut } from "react-icons/fi";
 
 export default function Header() {
-
-
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, userInfo } = useContext(AuthContext);
   const handleLogOut = () => {
-
     // console.log("logout perform")
     logOut()
-    .then(()=>{   })
-    .catch(err => console.log(err))
-  }
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
   console.log(user);
   const [navbar, setNavbar] = useState(false);
 
@@ -116,26 +112,48 @@ export default function Header() {
         </div>
         <div>
           <div
-            className={`flex-1 justify-self-center pb-3 mt-8 md:flex md:pb-0 md:mt-0 ${
+            className={` pb-3 mt-8 md:flex md:justify-end md:items-center md:pb-0 md:mt-0 ${
               navbar ? "block" : "hidden"
             }`}
           >
             {user?.uid ? (
               <>
-                <button onClick={handleLogOut} className="flex items-center p-1 text-red-600 border border-red-600  rounded hover:bg-red-600 hover:text-white">
+                {userInfo?.photoUrl && (
+                  <img
+                    onClick={() => navigate("/menu")}
+                    src={userInfo?.photoUrl}
+                    className="w-8 rounded-full md:mx-3"
+                    alt=""
+                  ></img>
+                )}
+                <p className="mx-1 text-primary font-semibold text-xs md:text-sm">
+                  {user?.displayName || userInfo?.name}
+                </p>
+                <button
+                  onClick={handleLogOut}
+                  className="flex items-center p-1 text-sm text-red-600 border border-red-600  rounded hover:bg-red-600 hover:text-white"
+                >
                   <span>Logout</span>
                   <FiLogOut className="pl-1 text-xl"></FiLogOut>
                 </button>
               </>
             ) : (
               <>
-              <Link to="/login"  className="flex items-center p-1 px-2  text-sm text-white bg-sky-500 rounded hover:bg-lime-400" >Login</Link>
-              <p className=" p-1 px-2">or</p>
-              <Link to="/signup"  className="flex items-center p-1 px-2  text-sm text-white bg-sky-500 rounded hover:bg-lime-400" >Sign Up</Link>
-
+                <Link
+                  to="/login"
+                  className="flex items-center p-1 px-2  text-sm text-white bg-sky-500 rounded hover:bg-lime-400"
+                >
+                  Login
+                </Link>
+                <p className=" p-1 px-2">or</p>
+                <Link
+                  to="/signup"
+                  className="flex items-center p-1 px-2  text-sm text-white bg-sky-500 rounded hover:bg-lime-400"
+                >
+                  Sign Up
+                </Link>
               </>
             )}
-            
           </div>
         </div>
       </div>

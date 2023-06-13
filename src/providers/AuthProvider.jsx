@@ -16,7 +16,10 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [userInfo, setUserInfo] = useState("");
   const [loading, setLoading] = useState(true);
+
+  console.log("mg", userInfo)
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -43,6 +46,22 @@ const AuthProvider = ({ children }) => {
       photoURL: photo,
     });
   };
+
+
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user?.email}`)
+        .then(res => res.json())
+        .then(data => {
+            if(data[0]){
+                setUserInfo(data[0])
+                setDoFetch(false);
+            }
+            
+        })
+}, [user?.email])
+
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -109,6 +128,7 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    userInfo,
     loading,
     createUser,
     signIn,

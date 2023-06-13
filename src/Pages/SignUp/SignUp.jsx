@@ -87,16 +87,20 @@ const SignUp = () => {
         email,
         photoUrl
       }
-      createUser(email,password)
+      try{
+        createUser(email,password)
       .then(result => {
         const loggedUser = result.user;
-        console.log(loggedUser)
+        // console.log("ok")
         if(result.user){
-          // createMongoUser(userObject)
-          console.log(result.user);
+          createMongoUser(userObject)
+          // console.log(result.user);
           navigate('/')
         }
       })
+      } catch (err){
+        console.log(err)
+      }
     }
 
   };
