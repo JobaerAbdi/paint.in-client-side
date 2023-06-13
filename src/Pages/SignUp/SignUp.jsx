@@ -4,11 +4,12 @@ import { AiFillEyeInvisible } from "react-icons/ai";
 import photo from "../../assets/Login/bnr.jpeg";
 import photobg from "../../assets/Login/paintbg.png";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const SignUp = () => {
+  const navigate = useNavigate()
   const { createUser, createMongoUser, providerLogin } = useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
@@ -93,6 +94,7 @@ const SignUp = () => {
         if(result.user){
           // createMongoUser(userObject)
           console.log(result.user);
+          navigate('/')
         }
       })
     }
@@ -113,7 +115,7 @@ const SignUp = () => {
             // console.log(phor)
             createMongoUser(userObject)
           }
-          // navigate('/')
+          navigate('/')
       })
       .catch(err => console.log(err))
   }

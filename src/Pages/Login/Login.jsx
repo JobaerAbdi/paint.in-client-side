@@ -4,11 +4,12 @@ import { AiFillEyeInvisible } from "react-icons/ai";
 import photo from "../../assets/Login/bnr.jpeg";
 import photobg from "../../assets/Login/paintbg.png";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
+  const navigate = useNavigate()
   const { signIn, providerLogin, createMongoUser } = useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
@@ -31,10 +32,11 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     console.log(email, password);
-    signIn(email, password);
-    then((result) => {
+    signIn(email, password)
+    .then((result) => {
       const user = result.user;
-      console.log(user);
+      // console.log(user);
+      navigate('/')
     });
     // Perform login logic here
   };
@@ -54,7 +56,7 @@ const Login = () => {
             // console.log(phor)
             createMongoUser(userObject)
           }
-          // navigate('/')
+          navigate('/')
       })
       .catch(err => console.log(err))
   }
@@ -123,7 +125,7 @@ const Login = () => {
                   type="submit"
                   className="w-full bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600 transition duration-200"
                 >
-                  Sign In
+                  Log in
                 </button>
               </form>
               <div className="m-4 text-center">
