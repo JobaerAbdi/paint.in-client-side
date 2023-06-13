@@ -92,7 +92,7 @@ const Card = ({ classInfo }) => {
 
   return (
     <div className=" font-serif max-w-md mx-auto my-3 md:m-3 bg-white shadow-md overflow-hidden md:max-w-2xl  hover:scale-110 transition-transform duration-300">
-      <div className="">
+      <div className={availableSeats || `bg-red-500`}>
         <div className="md:flex-shrink-0">
           <img
             className="h-48 w-full object-cover md:w-64"
@@ -169,31 +169,57 @@ const Card = ({ classInfo }) => {
               </p>
             </div>
             <div>
-              {userInfo?.userRole ? (
+              {userInfo?.userRole == "student" ? (
                 <>
                   {isBooked ? (
                     <button class="shadow-2xl px-4 py-2 rounded text-white bg-gradient-to-r from-green-500 to-cyan-400">
                       Booked
                     </button>
                   ) : (
-                    <button
-                      onClick={handleBookClass}
-                      class="shadow-2xl px-4 py-2 rounded text-white bg-gradient-to-r from-pink-500 to-fuchsia-500"
-                    >
-                      Book Class
-                    </button>
+                    <>
+                      {availableSeats == 0 ? (
+                        <>
+                        <div className="w-fit mx-auto m-3  shadow-2xl">
+                          <p className="bg-pink-200 p-2 rounded-md text-white">
+                            No Seats Availabe!
+                          </p>
+                        </div>
+                      </>
+                      ) : (
+                        <>
+                          <button
+                            onClick={handleBookClass}
+                            class="shadow-2xl px-4 py-2 rounded text-white bg-gradient-to-r from-pink-500 to-fuchsia-500"
+                          >
+                            Book Class
+                          </button>
+                        </>
+                      )}
+                    </>
                   )}
                 </>
               ) : (
                 <>
-                  <div className="w-fit mx-auto m-3  shadow-2xl">
-                    <Link
-                      to="/login"
-                      className="bg-pink-200 p-2 rounded-md text-white"
-                    >
-                      Login to Book
-                    </Link>
-                  </div>
+                  {availableSeats == 0 ? (
+                    <>
+                      <div className="w-fit mx-auto m-3  shadow-2xl">
+                        <p className="bg-pink-200 p-2 rounded-md text-white">
+                          No Seats Availabe!
+                        </p>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-fit mx-auto m-3  shadow-2xl">
+                        <Link
+                          to="/login"
+                          className="bg-pink-200 p-2 rounded-md text-white"
+                        >
+                          No Access !
+                        </Link>
+                      </div>
+                    </>
+                  )}
                 </>
               )}
             </div>
