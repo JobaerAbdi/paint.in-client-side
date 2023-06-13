@@ -6,7 +6,6 @@ function CommonBanner({bannerData}) {
 
     const { title, description, bannerImage} = bannerData;
 
-    console.log(bannerData)
 
   return (
     <div className='md:flex md:mx-16 lg:mx-32 my-2 px-10 shadow-xl '>

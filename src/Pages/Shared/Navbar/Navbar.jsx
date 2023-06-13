@@ -14,7 +14,6 @@ export default function Header() {
       .then(() => {})
       .catch((err) => console.log(err));
   };
-  console.log(user);
   const [navbar, setNavbar] = useState(false);
 
   return (

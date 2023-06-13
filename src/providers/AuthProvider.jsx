@@ -18,8 +18,8 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [userInfo, setUserInfo] = useState("");
   const [loading, setLoading] = useState(true);
+  const [doFetch, setDoFetch] = useState(false);
 
-  console.log("mg", userInfo)
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -134,6 +134,8 @@ const AuthProvider = ({ children }) => {
     updateUserProfile,
     createMongoUser,
     providerLogin,
+    doFetch, 
+    setDoFetch
   };
 
   return (
