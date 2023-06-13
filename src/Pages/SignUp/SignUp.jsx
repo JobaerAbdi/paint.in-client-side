@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, createMongoUser } = useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
   const [err, setErr] = useState("");
@@ -81,10 +81,18 @@ const SignUp = () => {
     //signup funs perform here--
     if(!err){
 
+      const userObject = {
+        name,
+        email,
+        password
+      }
       createUser(email,password)
       .then(result => {
         const loggedUser = result.user;
-        // console.log(loggedUser);
+        console.log(loggedUser)
+        if(result.user){
+          createMongoUser(userObject)
+        }
       })
 
 

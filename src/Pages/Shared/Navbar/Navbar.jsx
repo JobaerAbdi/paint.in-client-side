@@ -128,7 +128,12 @@ export default function Header() {
                 </button>
               </>
             ) : (
-              <><Link to="/login">Login</Link></>
+              <>
+              <Link to="/login"  className="flex items-center p-1 px-2  text-sm text-white bg-sky-500 rounded hover:bg-lime-400" >Login</Link>
+              <p className=" p-1 px-2">or</p>
+              <Link to="/signup"  className="flex items-center p-1 px-2  text-sm text-white bg-sky-500 rounded hover:bg-lime-400" >Sign Up</Link>
+
+              </>
             )}
             
           </div>
