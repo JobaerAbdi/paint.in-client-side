@@ -5,6 +5,7 @@ import photo from "../../assets/Login/bnr.jpeg";
 import photobg from "../../assets/Login/paintbg.png";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
   const { createUser } = useContext(AuthContext);
@@ -58,7 +59,7 @@ const SignUp = () => {
     }else if( !pattern.test(password2)){
       setErr("password must have at least 6 character mix with uppercase and special character !")
     }else{
-      setErr(" ")
+      setErr("")
     }
   }
   
@@ -74,12 +75,20 @@ const SignUp = () => {
     e.preventDefault();
     // console.log(name, email, password, password2, photoUrl);
 
-
-
-    // console.log(err) 
     setShowErr(true);
     
 
+    //signup funs perform here--
+    if(!err){
+
+      createUser(email,password)
+      .then(result => {
+        const loggedUser = result.user;
+        // console.log(loggedUser);
+      })
+
+
+    }
 
 
 
@@ -92,6 +101,10 @@ const SignUp = () => {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>Sign Up | Paint.in</title>
+      </Helmet>
     <div className=" container mx-auto">
       <div className=" md:flex flex-row-reverse justify-center items-start">
         <div
@@ -225,7 +238,7 @@ const SignUp = () => {
                 to="/login"
                 className="text-white p-1 rounded-md bg-gray-600 hover:underline"
               >
-                Have account? Login
+                Have an account? Login
               </Link>
             </div>
             {/* <button
@@ -239,6 +252,7 @@ const SignUp = () => {
         <img className="basis-1/2 md:w-1/2" src={photo}></img>
       </div>
     </div>
+    </>
   );
 };
 
