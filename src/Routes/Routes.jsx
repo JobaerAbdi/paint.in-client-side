@@ -13,6 +13,7 @@ import MyClasses from "../Pages/StudentPage/MyClasses";
 import EnrolledClasses from "../Pages/StudentPage/EnrolledClasses";
 import AddClasses from "../Pages/InstructorPage/AddClasses";
 import Payment from "../Pages/Payment/Payment";
+import MyAddedClasses from "../Pages/InstructorPage/MyAddedClasses";
 
 
 
@@ -66,7 +67,7 @@ import Payment from "../Pages/Payment/Payment";
         },
         {
           path: "myclasses",
-          element:<MyClasses></MyClasses>
+          element:<MyAddedClasses></MyAddedClasses>
         },
       ]
     },
