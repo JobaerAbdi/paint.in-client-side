@@ -12,6 +12,7 @@ import NotFound from "../Pages/NotFound/NotFound";
 import MyClasses from "../Pages/StudentPage/MyClasses";
 import EnrolledClasses from "../Pages/StudentPage/EnrolledClasses";
 import AddClasses from "../Pages/InstructorPage/AddClasses";
+import Payment from "../Pages/Payment/Payment";
 
 
 
@@ -39,6 +40,10 @@ import AddClasses from "../Pages/InstructorPage/AddClasses";
         {
             path: '/signup',
             element: <SignUp></SignUp>
+        },
+        {
+            path: '/enroll/payment',
+            element: <Payment></Payment>
         },
         
       ]
