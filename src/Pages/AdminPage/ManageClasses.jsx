@@ -1,29 +1,91 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../providers/AuthProvider';
 
-function MyAddedClasses() {
+function ManageClasses() {
 
 
   const { userInfo, doFetch, setDoFetch } = useContext(AuthContext);
 
   const [data, setData] = useState([]);
 
+  // console.log(data)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:5000/class/${userInfo?.email}`
-        );
+        const response = await fetch("http://localhost:5000/pendingClass");
         const jsonData = await response.json();
         setData(jsonData);
-        // setDoFetch(false);
+        setDoFetch(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [doFetch]);
+
+
+ const deleteClass = (idx) => {
+
+    const id = data[idx]._id
+
+    fetch(`http://localhost:5000/class/${id}`, {
+        method: 'DELETE',
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to delete data');
+          }
+          console.log("delete")
+          setDoFetch(true)
+          // Handle any additional logic or state updates if needed
+        })
+        .catch(error => {
+          console.log(err)
+        });
+
+
+ }
+
+
+ 
+
+ console.log(data[0])
+
+
+
+  const HandleApproveClass = (idx) => {
+
+    const newClass = data[idx];
+
+
+    fetch('http://localhost:5000/approveClass', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(newClass)
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.acknowledged) {
+                // toast('product add successfully')
+                // navigate('/dashboard/myclasses')
+                console.log("post succes")
+                deleteClass(idx)
+
+            }
+        })
+        .catch(er => console.error(er));
+
+
+
+
+
+
+  }
+
 
 
 
@@ -32,7 +94,7 @@ function MyAddedClasses() {
     <div> 
         <div>
       <div className="mx-2 md:flex justify-center flex-wrap ">
-        {data.map((cls) => (
+        {data.map((cls, idx) => (
           <div className=" font-serif max-w-md mx-auto my-3 md:m-3 bg-white shadow-md overflow-hidden md:max-w-2xl  hover:scale-110 transition-transform duration-300">
             <div className={cls?.availableSeats || `bg-red-500`}>
               <div className="md:flex-shrink-0">
@@ -112,63 +174,14 @@ function MyAddedClasses() {
                       Enrolled Students: {cls?.enrolledStudent}
                     </p>
                   </div>
+                  <div className="flex gap-2 justify-center mt-3">
+                    <button onClick={()=>HandleApproveClass(idx)} className='bg-cyan-500 p-2 rounded-md text-white font-bold'>Approve</button>
+                    <button onClick={()=> deleteClass(idx)} className='bg-rose-500 p-2 rounded-md text-white font-bold'>Deny</button>
+                    
+                  </div>
 
 
-                  {/* <div>
-                    {userInfo?.userRole == "student" ? (
-                      <>
-                        {isBooked ? (
-                          <button class="shadow-2xl px-4 py-2 rounded text-white bg-gradient-to-r from-green-500 to-cyan-400">
-                            Booked
-                          </button>
-                        ) : (
-                          <>
-                            {availableSeats == 0 ? (
-                              <>
-                                <div className="w-fit mx-auto m-3  shadow-2xl">
-                                  <p className="bg-pink-200 p-2 rounded-md text-white">
-                                    No Seats Availabe!
-                                  </p>
-                                </div>
-                              </>
-                            ) : (
-                              <>
-                                <button
-                                  onClick={handleBookClass}
-                                  class="shadow-2xl px-4 py-2 rounded text-white bg-gradient-to-r from-pink-500 to-fuchsia-500"
-                                >
-                                  Book Class
-                                </button>
-                              </>
-                            )}
-                          </>
-                        )}
-                      </>
-                    ) : (
-                      <>
-                        {availableSeats == 0 ? (
-                          <>
-                            <div className="w-fit mx-auto m-3  shadow-2xl">
-                              <p className="bg-pink-200 p-2 rounded-md text-white">
-                                No Seats Availabe!
-                              </p>
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <div className="w-fit mx-auto m-3  shadow-2xl">
-                              <Link
-                                to="/login"
-                                className="bg-pink-200 p-2 rounded-md text-white"
-                              >
-                                No Access !
-                              </Link>
-                            </div>
-                          </>
-                        )}
-                      </>
-                    )}
-                  </div> */}
+                  
 
 
 
@@ -183,4 +196,4 @@ function MyAddedClasses() {
   )
 }
 
-export default MyAddedClasses;
+export default ManageClasses;

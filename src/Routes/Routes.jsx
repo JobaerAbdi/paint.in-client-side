@@ -14,6 +14,8 @@ import EnrolledClasses from "../Pages/StudentPage/EnrolledClasses";
 import AddClasses from "../Pages/InstructorPage/AddClasses";
 import Payment from "../Pages/Payment/Payment";
 import MyAddedClasses from "../Pages/InstructorPage/MyAddedClasses";
+import ManageClasses from "../Pages/AdminPage/ManageClasses";
+import ManageUsers from "../Pages/AdminPage/ManageUsers";
 
 
 
@@ -68,6 +70,14 @@ import MyAddedClasses from "../Pages/InstructorPage/MyAddedClasses";
         {
           path: "myclasses",
           element:<MyAddedClasses></MyAddedClasses>
+        },
+        {
+          path: "manageClasses",
+          element:<ManageClasses></ManageClasses>
+        },
+        {
+          path: "manageUser",
+          element:<ManageUsers></ManageUsers>
         },
       ]
     },

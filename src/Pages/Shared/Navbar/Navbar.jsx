@@ -109,7 +109,7 @@ export default function Header() {
                 }
                 { 
                   userInfo?.userRole === "instructor" && <Link
-                  to="/dashboard/addclasses"
+                  to="/dashboard/manageclasses"
                   className="  font-semi-bold px-2 py-1 myshadow transition ease-in-out duration-900 hover:scale-110 rounded-md"
                 >
                  I Dashboard
