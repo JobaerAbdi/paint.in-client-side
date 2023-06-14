@@ -3,7 +3,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 
 const Card = ({ classInfo }) => {
-  const { userInfo, doFetch, setDoFetch } = useContext(AuthContext);
+  const { user, userInfo, doFetch, setDoFetch } = useContext(AuthContext);
   const [isBooked, setIsBooked] = useState("");
 
   console.log(isBooked);
@@ -33,7 +33,7 @@ const Card = ({ classInfo }) => {
     enrolledStudent,
   };
 
-  // fetch BOOk information \/
+  // fetch isBOOk information \/
 
   useEffect(() => {
     fetch(
@@ -57,7 +57,9 @@ const Card = ({ classInfo }) => {
         // Handle the error case, e.g., set a default value for setIsBooked or show an error message
         setDoFetch(false);
       });
-  }, [doFetch]);
+  }, [user , doFetch]);
+
+  // console.log(user?.uid);
 
   // fetch Book information /\
 

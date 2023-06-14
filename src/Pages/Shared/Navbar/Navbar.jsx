@@ -100,10 +100,10 @@ export default function Header() {
               </li>
               <li className="">
                 <Link
-                  to="/"
+                  to="/dashboard"
                   className="  font-semi-bold px-2 py-1 myshadow transition ease-in-out duration-900 hover:scale-110 rounded-md"
                 >
-                  Contact
+                  Dashboard
                 </Link>
               </li>
             </ul>
