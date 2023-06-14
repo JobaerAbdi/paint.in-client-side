@@ -99,12 +99,15 @@ export default function Header() {
                 </Link>
               </li>
               <li className="">
-                <Link
-                  to="/dashboard"
+                { 
+                  userInfo?.userRole === "student" && <Link
+                  to="/dashboard/selectedclasses"
                   className="  font-semi-bold px-2 py-1 myshadow transition ease-in-out duration-900 hover:scale-110 rounded-md"
                 >
                   Dashboard
                 </Link>
+                }
+                
               </li>
             </ul>
           </div>

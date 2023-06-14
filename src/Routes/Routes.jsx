@@ -9,6 +9,8 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Dashboard from "../Layout/DashBoard";
 import NotFound from "../Pages/NotFound/NotFound";
+import MyClasses from "../Pages/StudentPage/MyClasses";
+import EnrolledClasses from "../Pages/StudentPage/EnrolledClasses";
 
 
 
@@ -44,7 +46,14 @@ import NotFound from "../Pages/NotFound/NotFound";
       path:"dashboard",
       element: <Dashboard></Dashboard>,
       children: [
-        
+        {
+          path: "selectedclasses",
+          element:<MyClasses></MyClasses>
+        },
+        {
+          path: "enrolledclasses",
+          element:<EnrolledClasses></EnrolledClasses>
+        },
       ]
     },
     {

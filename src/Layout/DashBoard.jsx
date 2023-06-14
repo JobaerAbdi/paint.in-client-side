@@ -26,12 +26,12 @@ const Dashboard = () => {
           >
             <ul className="py-4">
               <li>
-                <Link to="#" className="block py-2 px-4">
+                <Link to="selectedclasses" className="block py-2 px-4">
                   My Selected Classes
                 </Link>
               </li>
               <li>
-                <Link to="#" className="block py-2 px-4">
+                <Link to="enrolledclasses" className="block py-2 px-4">
                   My Enrolled Classes
                 </Link>
               </li>
