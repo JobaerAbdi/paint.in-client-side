@@ -11,6 +11,7 @@ import Dashboard from "../Layout/DashBoard";
 import NotFound from "../Pages/NotFound/NotFound";
 import MyClasses from "../Pages/StudentPage/MyClasses";
 import EnrolledClasses from "../Pages/StudentPage/EnrolledClasses";
+import AddClasses from "../Pages/InstructorPage/AddClasses";
 
 
 
@@ -53,6 +54,14 @@ import EnrolledClasses from "../Pages/StudentPage/EnrolledClasses";
         {
           path: "enrolledclasses",
           element:<EnrolledClasses></EnrolledClasses>
+        },
+        {
+          path: "addclasses",
+          element:<AddClasses></AddClasses>
+        },
+        {
+          path: "myclasses",
+          element:<MyClasses></MyClasses>
         },
       ]
     },
