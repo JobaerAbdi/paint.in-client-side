@@ -42,7 +42,7 @@ const Payment = () => {
   
         // Handle success response
         console.log("enroll successfully");
-        navigate('/dashboard/selectedclasses')
+        navigate('/dashboard/enrolledclasses')
         // setDoFetch(true);
       } catch (error) {
         // Handle error

@@ -82,7 +82,6 @@ function ClassCarousel() {
 
   return (
     <div>
-      <h2>fujkhfkujfkujfgki</h2>
       {/* <h2>Auto Play</h2> */}
       <Slider {...settings}>
         {data.slice(0, 4).map((classInfo) => (
