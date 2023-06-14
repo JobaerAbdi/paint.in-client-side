@@ -8,6 +8,7 @@ import Classes from "../Pages/Classes/Classes";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Dashboard from "../Layout/DashBoard";
+import NotFound from "../Pages/NotFound/NotFound";
 
 
 
@@ -42,8 +43,12 @@ import Dashboard from "../Layout/DashBoard";
     {
       path:"dashboard",
       element: <Dashboard></Dashboard>,
-      // children: [
-
-      // ]
+      children: [
+        
+      ]
+    },
+    {
+      path: '*',
+      element: <NotFound></NotFound>
     }
   ]);
