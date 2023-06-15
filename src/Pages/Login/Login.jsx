@@ -37,6 +37,7 @@ const Login = () => {
       const user = result.user;
       // console.log(user);
       navigate('/')
+      window.location.reload(true);
     });
     // Perform login logic here
   };
@@ -58,6 +59,7 @@ const Login = () => {
             createMongoUser(userObject)
           }
           navigate('/')
+          window.location.reload(true);
       })
       .catch(err => console.log(err))
   }
