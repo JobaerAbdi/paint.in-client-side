@@ -94,7 +94,7 @@ const Card = ({ classInfo }) => {
   };
 
   return (
-    <div className=" font-serif max-w-md mx-auto my-3 md:m-3 bg-white shadow-md overflow-hidden md:max-w-2xl  hover:scale-110 transition-transform duration-300">
+    <div className=" font-serif max-w-md mx-auto my-3 md:m-6 bg-white shadow-md overflow-hidden md:max-w-2xl  hover:scale-110 transition-transform duration-300">
       <div className={availableSeats || `bg-red-500`}>
         <div className="md:flex-shrink-0">
           <img

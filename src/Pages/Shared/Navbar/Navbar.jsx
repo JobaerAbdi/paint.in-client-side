@@ -21,14 +21,15 @@ export default function Header() {
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between  md:block">
-            <a href="javascript:void(0)">
+            <div className="flex items-center" >
               <img
-                className=" w-20 md:w-20"
+                className=" w-16 md:w-20"
                 src={logo}
                 alt="my gif"
                 height="auto"
               />
-            </a>
+              <p className="text-xl md:text-4xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-transparent bg-clip-text ">Paint.in</p>
+            </div>
             <div className="md:hidden">
               <button
                 className="p-2 text-black rounded-md outline-none focus:border-gray-400 focus:border myshadow"
@@ -109,7 +110,7 @@ export default function Header() {
                 }
                 { 
                   userInfo?.userRole === "instructor" && <Link
-                  to="/dashboard/manageclasses"
+                  to="/dashboard/myclasses"
                   className="  font-semi-bold px-2 py-1 myshadow transition ease-in-out duration-900 hover:scale-110 rounded-md"
                 >
                  Dashboard

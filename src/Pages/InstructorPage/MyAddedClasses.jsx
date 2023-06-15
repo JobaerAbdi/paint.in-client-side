@@ -30,6 +30,31 @@ function MyAddedClasses() {
 
   return (
     <div> 
+      {
+        data[0] ? <>
+          <div className="text-center mb-6 pt-20 font-sans">
+          <h2 className="text-2xl font-bold text-blue-600 my-3">All of your added classes</h2>
+          {/* <h1 className="text-4xl font-bold ">Check out our popular classes!</h1> */}
+          <p className="my-2 text-lg font-semibold">
+            your classes are pending now. When an admin approved your class,
+            <br /> Then your class will be visible to your student.
+          </p>
+        </div>
+        </>:<>
+        <div className="text-center mb-6 pt-10 font-sans">
+          <h2 className="text-2xl font-bold text-blue-600 my-3">you don't added any class yet!</h2>
+          {/* <h1 className="text-4xl font-bold ">Check out our popular classes!</h1> */}
+          <p className="my-2 text-lg font-semibold">
+            Go to add a class page, then add a class.
+            {/* <br /> Then your class will be visible to your student. */}
+          </p>
+        </div>
+        
+        </>
+
+
+
+      }
         <div>
       <div className="mx-2 md:flex justify-center flex-wrap ">
         {data.map((cls) => (

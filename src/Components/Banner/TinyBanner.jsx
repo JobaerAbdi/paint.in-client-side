@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import React from "react";
 
@@ -20,7 +21,7 @@ const TinyBanner = () => {
               </a>
             </p>
           </div>
-          <Button text={"Enroll Now"} fill={true} />
+          <Link to="/classes" class="shadow-2xl px-6 py-2 rounded text-white bg-gradient-to-r from-pink-500 to-fuchsia-500">Enroll Now</Link>
         </div>
       </div>
     </div>

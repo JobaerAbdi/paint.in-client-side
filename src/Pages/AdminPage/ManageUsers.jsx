@@ -88,14 +88,16 @@ function ManageUsers() {
               <p className='text-purple-700 text-sm' >{user?.email}</p>
               <p className="text-gray-500 font-semibold">User Type : <span className=' text-orange-600'>{user?.userRole}</span> </p>
 
+              <div className="my-5">
               {
                 user?.userRole == "student" &&
-                    <button onClick={() => changeRole("Instructor", user?.email)} className="btn btn-outline  btn-xs btn-secondary rounded-md text-xs">Make Instructor</button>
+                    <button onClick={() => changeRole("instructor", user?.email)} className="btn btn-outline  btn-xs btn-secondary rounded-md text-xs">Make Instructor</button>
               }
               {
                 user?.userRole == "instructor" &&
                     <button onClick={() => changeRole("student", user?.email)}  className="btn btn-outline  btn-xs btn-secondary rounded-md text-xs">Make Student</button>
               }
+              </div>
             </div>
           </div>
         </div>
