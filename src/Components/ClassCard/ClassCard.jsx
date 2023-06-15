@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Card = ({ classInfo }) => {
   const { user, userInfo, doFetch, setDoFetch } = useContext(AuthContext);
   const [isBooked, setIsBooked] = useState("");
 
-  console.log(isBooked);
 
   const {
     _id,
@@ -46,7 +46,7 @@ const Card = ({ classInfo }) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data?.classId === _id) {
           setIsBooked(true);
         }
@@ -79,6 +79,7 @@ const Card = ({ classInfo }) => {
 
       // Handle success response
       console.log("Booking successfully");
+      toast.success("Booking successfully")
       setDoFetch(true);
     } catch (error) {
       // Handle error

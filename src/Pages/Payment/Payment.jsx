@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Payment = () => {
   const { userInfo, doFetch, setDoFetch } = useContext(AuthContext);
@@ -53,6 +54,7 @@ const Payment = () => {
             throw new Error('Failed to delete data');
           }
           console.log("delete")
+          toast.success("Payment successfull")
           navigate('/dashboard/enrolledclasses')
           // setDoFetch(true)
           // Handle any additional logic or state updates if needed

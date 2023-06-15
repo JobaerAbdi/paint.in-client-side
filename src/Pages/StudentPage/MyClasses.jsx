@@ -26,6 +26,11 @@ function MyClasses() {
 
   return (
     <div>
+      <p className=" text-center text-4xl font-bold my-5 ">
+        {" "}
+        Your Booked All calsses.
+      </p>
+
       <div className="mx-2 md:flex justify-center flex-wrap ">
         {data.map((instractor) => (
           <ClassSliderCard data={instractor} />

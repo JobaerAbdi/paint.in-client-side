@@ -26,6 +26,11 @@ function EnrolledClasses() {
 
   return (
     <div>
+      <p className=" text-center text-4xl font-bold my-5 ">
+        {" "}
+        Your Enrolled calsses.
+      </p>
+
       <div className="mx-2 md:flex justify-center flex-wrap ">
         {data.map((cls) => (
           <div className=" font-serif max-w-md mx-auto my-3 md:m-3 bg-white shadow-md overflow-hidden md:max-w-2xl  hover:scale-110 transition-transform duration-300">
@@ -49,7 +54,9 @@ function EnrolledClasses() {
                       src={instructorPhoto}
                       alt="Instructor"
                     /> */}
-                    <h4 className="text-lg font-medium">{cls?.instructorName}</h4>
+                    <h4 className="text-lg font-medium">
+                      {cls?.instructorName}
+                    </h4>
                   </div>
                   <div className="mt-2 flex items-center">
                     <svg
@@ -108,7 +115,6 @@ function EnrolledClasses() {
                     </p>
                   </div>
 
-
                   {/* <div>
                     {userInfo?.userRole == "student" ? (
                       <>
@@ -164,9 +170,6 @@ function EnrolledClasses() {
                       </>
                     )}
                   </div> */}
-
-
-
                 </div>
               </div>
             </div>
