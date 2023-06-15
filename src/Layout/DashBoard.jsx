@@ -20,7 +20,7 @@ const Dashboard = () => {
 
         <div className="flex">
           <div
-            className={`bg-gray-800 text-gray-400 w-32 md:w-64 min-h-screen flex-shrink-0 ${
+            className={`bg-green-400 text-white text-2xl font-semibold w-32 md:w-64 min-h-screen flex-shrink-0 ${
               isOpen ? "block" : "hidden"
             } md:block`}
           >
@@ -87,7 +87,7 @@ const Dashboard = () => {
 
         <div className="flex">
           <div
-            className={`bg-gray-800 text-gray-400 w-32 md:w-64 min-h-screen flex-shrink-0 ${
+            className={`bg-green-400 text-white text-2xl font-semibold w-32 md:w-64 min-h-screen flex-shrink-0 ${
               isOpen ? "block" : "hidden"
             } md:block`}
           >
@@ -154,7 +154,7 @@ const Dashboard = () => {
 
       <div className="flex">
         <div
-          className={`bg-gray-800 text-gray-400 w-32 md:w-64 min-h-screen flex-shrink-0 ${
+          className={`bg-green-400 text-white text-2xl font-semibold w-32 md:w-64 min-h-screen flex-shrink-0 ${
             isOpen ? "block" : "hidden"
           } md:block`}
         >

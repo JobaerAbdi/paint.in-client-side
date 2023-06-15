@@ -104,7 +104,7 @@ export default function Header() {
                   to="/dashboard/selectedclasses"
                   className="  font-semi-bold px-2 py-1 myshadow transition ease-in-out duration-900 hover:scale-110 rounded-md"
                 >
-                 S Dashboard
+                 Dashboard
                 </Link>
                 }
                 { 
@@ -112,7 +112,7 @@ export default function Header() {
                   to="/dashboard/manageclasses"
                   className="  font-semi-bold px-2 py-1 myshadow transition ease-in-out duration-900 hover:scale-110 rounded-md"
                 >
-                 I Dashboard
+                 Dashboard
                 </Link>
                 }
                 { 
@@ -120,7 +120,7 @@ export default function Header() {
                   to="/dashboard/manageclasses"
                   className="  font-semi-bold px-2 py-1 myshadow transition ease-in-out duration-900 hover:scale-110 rounded-md"
                 >
-                 A Dashboard
+                 Dashboard
                 </Link>
                 }
                 
