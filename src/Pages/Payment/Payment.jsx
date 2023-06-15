@@ -10,21 +10,64 @@ const Payment = () => {
   const navigate = useNavigate();
 
   const data = location.state;
-  console.log(data);
+  // console.log(data);
+
+
+  function removeElementByKey(obj, key) {
+    const newObj = { ...obj };
+      delete newObj[key];
+    return newObj;
+  }
+
+
+  const cutData = removeElementByKey(data, "_id");
+
+
+  
 
   const enrollinfo = {
-    ...data,
+    ...cutData,
     email: userInfo?.email
   }
+
+  console.log(enrollinfo)
 
 
   const [cardNumber, setCardNumber] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
   const [cvv, setCvv] = useState('');
 
+
+
+
+
+  const deleteClass = () => {
+
+    const id = data?._id
+
+    fetch(`http://localhost:5000/booking/${id}`, {
+        method: 'DELETE',
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to delete data');
+          }
+          console.log("delete")
+          navigate('/dashboard/enrolledclasses')
+          // setDoFetch(true)
+          // Handle any additional logic or state updates if needed
+        })
+        .catch(error => {
+          console.log(err)
+        });
+ }
+
+
+
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
 
     const postBooking = async () => {
       try {
@@ -42,7 +85,7 @@ const Payment = () => {
   
         // Handle success response
         console.log("enroll successfully");
-        navigate('/dashboard/enrolledclasses')
+        deleteClass();
         // setDoFetch(true);
       } catch (error) {
         // Handle error

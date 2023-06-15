@@ -182,7 +182,7 @@ const Card = ({ classInfo }) => {
                       {availableSeats == 0 ? (
                         <>
                         <div className="w-fit mx-auto m-3  shadow-2xl">
-                          <p className="bg-pink-200 p-2 rounded-md text-white">
+                          <p className="bg-pink-200 p-2 rounded-md text-black">
                             No Seats Availabe!
                           </p>
                         </div>
@@ -205,7 +205,7 @@ const Card = ({ classInfo }) => {
                   {availableSeats == 0 ? (
                     <>
                       <div className="w-fit mx-auto m-3  shadow-2xl">
-                        <p className="bg-pink-200 p-2 rounded-md text-white">
+                        <p className="bg-pink-200 p-2 rounded-md text-black">
                           No Seats Availabe!
                         </p>
                       </div>
