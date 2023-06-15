@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const ClassSliderCard = ({data}) => {
+  const { userInfo} = useContext(AuthContext);
+
 
   const {_id, title,image, price, instructorName,instructorPhoto, ratings,availableSeats,enrolledStudent} = data;
 
@@ -24,7 +27,14 @@ const ClassSliderCard = ({data}) => {
           {/* <p className='text-purple-700 text-sm' >{email}</p> */}
           <p className="text-gray-500 font-semibold">Available seats : <span className=' text-orange-600'>{availableSeats}</span> </p>
           <p className="text-gray-500 font-semibold">Enrolled students : <span className=' text-orange-600'>{enrolledStudent}</span> </p>
-          <Link to="/enroll/payment" state={data} onClick={handleEnroll} className="btn btn-outline  btn-xs btn-secondary rounded-md text-xs">Enroll</Link>
+
+          {
+            userInfo?.userRole == "student" &&  <Link to="/enroll/payment" state={data} onClick={handleEnroll} className="btn btn-outline  btn-xs btn-secondary rounded-md text-xs">Enroll</Link>
+
+          }
+
+
+
         </div>
       </div>
     </div>
