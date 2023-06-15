@@ -73,8 +73,34 @@ function ManageClasses() {
 
   return (
     <div>
+      {data[0] ? (
+        <>
+          <div className="text-center mb-6 pt-20 font-sans">
+            <h2 className="text-2xl font-bold text-blue-600 my-3">
+              All  are here.
+            </h2>
+            {/* <h1 className="text-4xl font-bold ">Check out our popular classes!</h1> */}
+            <p className="my-2 text-lg font-semibold">
+              You can make a student to an instructor.
+              <br /> and an instructor to a student.
+            </p>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="text-center mb-6 pt-10 font-sans">
+            <h2 className="text-2xl font-bold text-blue-600 my-3">
+              no classes are There!
+            </h2>
+            {/* <h1 className="text-4xl font-bold ">Check out our popular classes!</h1> */}
+            <p className="my-2 text-lg font-semibold">
+              when an instructor add a class. then you will see.
+              {/* <br /> Then your class will be visible to your student. */}
+            </p>
+          </div>
+        </>
+      )}
       <div>
-        <p className=" text-center text-4xl font-bold my-5 "> Manage All calsses.</p>
         <div className="mx-2 md:flex justify-center flex-wrap ">
           {data.map((cls, idx) => (
             <div className=" font-serif max-w-md mx-auto my-3 md:m-3 bg-white shadow-md overflow-hidden md:max-w-2xl  hover:scale-110 transition-transform duration-300">
