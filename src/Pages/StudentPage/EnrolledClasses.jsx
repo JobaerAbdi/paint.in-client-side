@@ -26,10 +26,33 @@ function EnrolledClasses() {
 
   return (
     <div>
-      <p className=" text-center text-4xl font-bold my-5 ">
-        {" "}
-        Your Enrolled calsses.
-      </p>
+      {data[0] ? (
+        <>
+          <div className="text-center mb-6 pt-20 font-sans">
+            <h2 className="text-2xl font-bold text-blue-600 my-3">
+              All of your Enrolled classes
+            </h2>
+            {/* <h1 className="text-4xl font-bold ">Check out our popular classes!</h1> */}
+            <p className="my-2 text-lg font-semibold">
+              Here you can attented your class
+              <br /> get the classes.
+            </p>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="text-center mb-6 pt-10 font-sans">
+            <h2 className="text-2xl font-bold text-blue-600 my-3">
+              you don't Enrolled any class yet!
+            </h2>
+            {/* <h1 className="text-4xl font-bold ">Check out our popular classes!</h1> */}
+            <p className="my-2 text-lg font-semibold">
+              Go to my classes page, then Enroll a class.
+              {/* <br /> Then your class will be visible to your student. */}
+            </p>
+          </div>
+        </>
+      )}
 
       <div className="mx-2 md:flex justify-center flex-wrap ">
         {data.map((cls) => (
@@ -118,7 +141,7 @@ function EnrolledClasses() {
                   {/* <div>
                     {userInfo?.userRole == "student" ? (
                       <>
-                        {isBooked ? (
+                        {isEnrolled ? (
                           <button class="shadow-2xl px-4 py-2 rounded text-white bg-gradient-to-r from-green-500 to-cyan-400">
                             Booked
                           </button>

@@ -51,9 +51,6 @@ function MyAddedClasses() {
         </div>
         
         </>
-
-
-
       }
         <div>
       <div className="mx-2 md:flex justify-center flex-wrap ">

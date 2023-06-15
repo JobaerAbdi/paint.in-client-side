@@ -171,7 +171,7 @@ const Card = ({ classInfo }) => {
                 Enrolled Students: {enrolledStudent}
               </p>
             </div>
-            <div>
+            <div className=" w-fit mx-auto mt-3">
               {userInfo?.userRole == "student" ? (
                 <>
                   {isBooked ? (
