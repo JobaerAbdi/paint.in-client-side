@@ -46,7 +46,7 @@ const Payment = () => {
 
     const id = data?._id
 
-    fetch(`http://localhost:5000/booking/${id}`, {
+    fetch(`https://paint-in-server.vercel.app/booking/${id}`, {
         method: 'DELETE',
       })
         .then(response => {
@@ -73,7 +73,7 @@ const Payment = () => {
 
     const postBooking = async () => {
       try {
-        const response = await fetch("http://localhost:5000/enroll", {
+        const response = await fetch("https://paint-in-server.vercel.app/enroll", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

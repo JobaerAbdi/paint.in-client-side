@@ -37,7 +37,7 @@ const AddClasses = () => {
 
     };
 
-    fetch("http://localhost:5000/addclass", {
+    fetch("https://paint-in-server.vercel.app/addclass", {
       method: "POST",
       headers: {
         "content-type": "application/json",

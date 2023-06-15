@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import ClassSliderCard from "../../Components/ClassCard/ClassSliderCard";
 
+
 function MyClasses() {
   const { userInfo, doFetch, setDoFetch } = useContext(AuthContext);
 
@@ -11,7 +12,7 @@ function MyClasses() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/booking/${userInfo?.email}`
+          `https://paint-in-server.vercel.app/booking/${userInfo?.email}`
         );
         const jsonData = await response.json();
         setData(jsonData);

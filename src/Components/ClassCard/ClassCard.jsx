@@ -37,7 +37,7 @@ const Card = ({ classInfo }) => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/isBooked/?email=${userInfo?.email}&classId=${_id}`
+      `https://paint-in-server.vercel.app/isBooked/?email=${userInfo?.email}&classId=${_id}`
     )
       .then((res) => {
         if (!res.ok) {
@@ -65,7 +65,7 @@ const Card = ({ classInfo }) => {
 
   const postBooking = async (bookingInfo) => {
     try {
-      const response = await fetch("http://localhost:5000/booking", {
+      const response = await fetch("https://paint-in-server.vercel.app/booking", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -11,7 +11,7 @@ function EnrolledClasses() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/enroll/${userInfo?.email}`
+          `https://paint-in-server.vercel.app/enroll/${userInfo?.email}`
         );
         const jsonData = await response.json();
         setData(jsonData);

@@ -13,7 +13,7 @@ function ManageClasses() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/pendingClass");
+        const response = await fetch("https://paint-in-server.vercel.app/pendingClass");
         const jsonData = await response.json();
         setData(jsonData);
         setDoFetch(false);
@@ -30,7 +30,7 @@ function ManageClasses() {
   const deleteClass = (idx) => {
     const id = data[idx]._id;
 
-    fetch(`http://localhost:5000/class/${id}`, {
+    fetch(`https://paint-in-server.vercel.app/class/${id}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -52,7 +52,7 @@ function ManageClasses() {
   const HandleApproveClass = (idx) => {
     const newClass = data[idx];
 
-    fetch("http://localhost:5000/approveClass", {
+    fetch("https://paint-in-server.vercel.app/approveClass", {
       method: "POST",
       headers: {
         "content-type": "application/json",

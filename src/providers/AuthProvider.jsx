@@ -19,6 +19,10 @@ const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState("");
   const [loading, setLoading] = useState(true);
   const [doFetch, setDoFetch] = useState(false);
+  const [fUser, setFUser] = useState(false);
+
+  console.log(user)
+  console.log(userInfo)
 
 
   const createUser = (email, password) => {
@@ -50,15 +54,16 @@ const AuthProvider = ({ children }) => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`https://paint-in-server.vercel.app/users/${user?.email}`)
         .then(res => res.json())
         .then(data => {
             if(data[0]){
                 setUserInfo(data[0])
+                setFUser(false);
             }
             
         })
-}, [user?.email])
+}, [user?.email, fUser])
 
 
 
@@ -76,7 +81,7 @@ const AuthProvider = ({ children }) => {
 
   const createMongoUser = async (userObject) => {
     try {
-      const response = await fetch("http://localhost:5000/users", {
+      const response = await fetch("https://paint-in-server.vercel.app/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,6 +95,7 @@ const AuthProvider = ({ children }) => {
 
       // Handle success response
       console.log("User created successfully");
+      setFUser(true)
     } catch (error) {
       // Handle error
       console.error(error.message);
@@ -100,7 +106,7 @@ const AuthProvider = ({ children }) => {
   //   useEffect(() => {
   //     const createUser = async () => {
   //       try {
-  //         const response = await fetch("http://localhost:5000/users", {
+  //         const response = await fetch("https://paint-in-server.vercel.app/users", {
   //           method: "POST",
   //           headers: {
   //             "Content-Type": "application/json",

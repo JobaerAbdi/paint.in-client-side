@@ -22,7 +22,7 @@ function Classes() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/classes");
+        const response = await fetch("https://paint-in-server.vercel.app/classes");
         const jsonData = await response.json();
         setData(jsonData);
         setDoFetch(false);

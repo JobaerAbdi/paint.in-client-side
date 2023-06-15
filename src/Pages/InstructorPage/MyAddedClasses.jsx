@@ -12,7 +12,7 @@ function MyAddedClasses() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/class/${userInfo?.email}`
+          `https://paint-in-server.vercel.app/class/${userInfo?.email}`
         );
         const jsonData = await response.json();
         setData(jsonData);

@@ -13,7 +13,7 @@ function ManageUsers() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/users");
+        const response = await fetch("https://paint-in-server.vercel.app/users");
         const jsonData = await response.json();
         setData(jsonData);
         setDoFetch(false);
@@ -37,7 +37,7 @@ function ManageUsers() {
 
 
 
-    fetch(`http://localhost:5000/users/${email}`, {
+    fetch(`https://paint-in-server.vercel.app/users/${email}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

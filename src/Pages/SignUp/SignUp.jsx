@@ -97,7 +97,7 @@ const SignUp = () => {
           createMongoUser(userObject)
           // console.log(result.user);
           navigate('/')
-          window.location.reload(true);
+          // window.location.reload(true);
         }
       })
       } catch (err){
@@ -124,7 +124,7 @@ const SignUp = () => {
           }
 
           navigate('/')
-          window.location.reload(true);
+          // window.location.reload(true);
 
       })
       .catch(err => console.log(err))
